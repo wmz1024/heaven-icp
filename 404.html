@@ -52,7 +52,6 @@ if (login!=ME){window.location.href="/#about"; }
             // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
             var isInvalidUrl =
               message === "Not Found" ||
-              !title ||
               url.hostname === location.hostname+'/#about';
 
             if (isInvalidUrl) {
