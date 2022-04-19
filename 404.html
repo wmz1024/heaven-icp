@@ -26,10 +26,6 @@
       }
 
       function redirect() {
-        var location = window.location;
-        var issueNumber = location.pathname.split("/")[
-          PATH_SEGMENTS_TO_SKIP + 1
-        ];
         var homepage =
           location.protocol +
           "//" +
@@ -52,10 +48,11 @@ if (login!=ME){window.location.href="/#about"; }
             // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
             var isInvalidUrl =
               message === "Not Found" ||
+              !title ||
               url.hostname === location.hostname+'/#about';
 
             if (isInvalidUrl) {
-              document.write(body)
+              location.replace(homepage);
             } else {
               document.write(body)
             }
